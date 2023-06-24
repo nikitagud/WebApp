@@ -2,13 +2,31 @@
 <html>
 <head>
     <title>Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
-    <h1>Books</h1>
+    <header class="header">
+        <div class="logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='books.png') }}" alt="Logo" class="logo">
+
+            </a>
+        </div>
+        <div class="button-container">
+            <a href="/login" class="button">Log In</a>
+            <a href="/signup" class="button">Sign Up</a>
+        </div>
+</header>
+    <img src="{{ url_for('static', filename='bb.png') }}" alt="Logo" class="bg-image" style="width:100%;height:calc(100vh - 60px); position:relative;">
+    <div class="form-wrapper">
+            <h1>Books</h1>
     <ul>
         {% for book in books %}
         <li>Name: {{ book.name }}; Author: {{ book.author }}; ID: {{ book.book_id }}.</li>
         {% endfor %}
     </ul>
+    </div>
+
 </body>
 </html>

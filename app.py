@@ -47,7 +47,7 @@ def login():
         if user and check_password_hash(user.password, password):
             return redirect("/index")
         else:
-            flash("Invalid username or password. Please try again.", "error")
+            flash("Something went wrong", "error")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -76,7 +76,7 @@ def signup():
         db.session.commit()
 
         flash("Signup successful! You can now login.", "success")
-        return redirect("/login")
+        return redirect("/index")
 
     return render_template("signup.html")
 
